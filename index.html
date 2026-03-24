@@ -142,6 +142,16 @@ async function decrypt(password) {
 
     const decoder = new TextDecoder();
     const html = decoder.decode(decrypted);
+
+    // Send Slack notification
+    try {
+      const now = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });
+      fetch('https://hooks.slack.com/services/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', {
+        method: 'POST',
+        body: JSON.stringify({ text: ':eyes: *Jatenzo Proposal Viewed*\nSomeone accessed the TCF x Jatenzo partnership proposal at ' + now + ' ET' })
+      }).catch(function(){});
+    } catch(e) {}
+
     document.open();
     document.write(html);
     document.close();
