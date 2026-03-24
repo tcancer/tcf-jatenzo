@@ -47,10 +47,10 @@ body {
 /* ── Navigation ── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--tcf-border);
   transition: all 0.3s ease;
 }
 .nav-inner {
@@ -60,17 +60,17 @@ body {
 }
 .nav-brand { display: flex; align-items: center; gap: 12px; }
 .nav-brand-logo {
-  height: 32px; width: auto; background: #fff; border-radius: 4px; padding: 2px 6px;
+  height: 32px; width: auto;
 }
 .nav-brand-tcf {
-  font-family: var(--font-heading); font-size: 1.3rem; color: var(--tcf-cyan);
+  font-family: var(--font-heading); font-size: 1.3rem; color: var(--tcf-navy);
   letter-spacing: 0.02em;
 }
-.nav-brand-sep { color: var(--tcf-muted); font-size: 1.1rem; }
-.nav-brand-partner { font-size: 0.85rem; color: var(--tcf-muted); font-weight: 500; }
+.nav-brand-sep { color: var(--tcf-slate); font-size: 1.1rem; }
+.nav-brand-partner { font-size: 0.85rem; color: var(--tcf-slate); font-weight: 500; }
 .nav-links { display: flex; gap: 28px; list-style: none; }
 .nav-links a {
-  color: var(--tcf-muted); text-decoration: none; font-size: 0.82rem;
+  color: var(--tcf-slate); text-decoration: none; font-size: 0.82rem;
   font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase;
   transition: color 0.2s;
 }
@@ -930,7 +930,7 @@ body {
         <ul>
           <li>Only full-time staffed TC organization</li>
           <li>Cojone Club survivor network</li>
-          <li>24/7 Discord community (497+ members)</li>
+          <li>24/7 Discord community (600+ members)</li>
         </ul>
       </div>
       <div class="info-card">
