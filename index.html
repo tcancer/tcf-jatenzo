@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCF × Tolmar — JATENZO Partnership Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Variables ── */
+:root {
+  --tcf-cyan: #00B4DB;
+  --tcf-cyan-dark: #0091B0;
+  --tcf-cyan-light: #E6F8FD;
+  --tcf-navy: #0F172A;
+  --tcf-slate: #475569;
+  --tcf-muted: #94A3B8;
+  --tcf-border: #E2E8F0;
+  --tcf-surface: #F8FAFC;
+  --tcf-light-gray: #F1F5F9;
+  --tcf-white: #FFFFFF;
+  --tcf-black: #000000;
+  --tcf-green: #16A34A;
+  --tcf-green-bg: #F0FDF4;
+  --font-heading: 'DM Serif Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--tcf-navy);
+  background: var(--tcf-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Utility ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.text-center { text-align: center; }
+.text-cyan { color: var(--tcf-cyan); }
+
+/* ── Navigation ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.3s ease;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; }
+.nav-brand-tcf {
+  font-family: var(--font-heading); font-size: 1.3rem; color: var(--tcf-cyan);
+  letter-spacing: 0.02em;
+}
+.nav-brand-sep { color: var(--tcf-muted); font-size: 1.1rem; }
+.nav-brand-partner { font-size: 0.85rem; color: var(--tcf-muted); font-weight: 500; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  color: var(--tcf-muted); text-decoration: none; font-size: 0.82rem;
+  font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--tcf-cyan); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
+
+/* ── Hero ── */
+.hero {
+  padding: 160px 0 100px;
+  background: linear-gradient(160deg, var(--tcf-navy) 0%, #1a2744 50%, #0d2137 100%);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -40%; right: -20%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(0,180,219,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -30%; left: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,180,219,0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-content { position: relative; z-index: 2; text-align: center; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,180,219,0.12); color: var(--tcf-cyan);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 8px 20px; border-radius: 100px;
+  margin-bottom: 32px; border: 1px solid rgba(0,180,219,0.2);
+}
+.hero-eyebrow::before {
+  content: ''; width: 6px; height: 6px; background: var(--tcf-cyan);
+  border-radius: 50%; animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.hero h1 {
+  font-family: var(--font-heading); font-size: clamp(2.5rem, 5.5vw, 3.8rem);
+  font-weight: 400; color: var(--tcf-white); line-height: 1.15;
+  margin-bottom: 24px; max-width: 800px; margin-left: auto; margin-right: auto;
+}
+.hero h1 em { font-style: normal; color: var(--tcf-cyan); }
+.hero-sub {
+  font-size: 1.15rem; color: var(--tcf-muted); max-width: 600px;
+  margin: 0 auto 40px; line-height: 1.7;
+}
+.hero-btn {
+  display: inline-block; background: var(--tcf-cyan); color: var(--tcf-white);
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 16px 40px; border-radius: 8px;
+  text-decoration: none; transition: all 0.25s;
+  box-shadow: 0 4px 24px rgba(0,180,219,0.3);
+}
+.hero-btn:hover {
+  background: var(--tcf-cyan-dark); transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,180,219,0.4);
+}
+
+/* ── Section Styles ── */
+.section { padding: 100px 0; }
+.section-alt { background: var(--tcf-light-gray); }
+.section-dark { background: var(--tcf-navy); color: var(--tcf-white); }
+.section-label {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--tcf-cyan); margin-bottom: 16px;
+}
+.section-label::after {
+  content: ''; flex: 1; height: 1px; background: var(--tcf-border);
+}
+.section-dark .section-label::after { background: rgba(255,255,255,0.1); }
+.section-h2 {
+  font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 400; color: var(--tcf-navy); margin-bottom: 12px; line-height: 1.2;
+}
+.section-dark .section-h2 { color: var(--tcf-white); }
+.section-sub {
+  font-size: 1rem; color: var(--tcf-slate); line-height: 1.7;
+  max-width: 700px; margin-bottom: 48px;
+}
+.section-dark .section-sub { color: var(--tcf-muted); }
+
+/* ── Stat Band ── */
+.stat-band {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--tcf-border);
+  border: 1px solid var(--tcf-border); border-radius: 16px;
+  overflow: hidden;
+}
+.stat-cell {
+  background: var(--tcf-white); padding: 36px 20px;
+  text-align: center; transition: background 0.2s;
+}
+.stat-cell:hover { background: var(--tcf-surface); }
+.stat-num {
+  font-family: var(--font-heading); font-size: 2.4rem;
+  color: var(--tcf-navy); line-height: 1; margin-bottom: 6px;
+}
+.stat-num em { font-style: normal; color: var(--tcf-cyan); }
+.stat-label { font-size: 0.8rem; color: var(--tcf-slate); font-weight: 500; }
+.stat-note { font-size: 0.7rem; color: var(--tcf-muted); margin-top: 4px; }
+
+@media (max-width: 768px) {
+  .stat-band { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Card Grids ── */
+.card-grid-2 {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.card-grid-3 {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.card-grid-4 {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .card-grid-3, .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .card-grid-2, .card-grid-3, .card-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ── Info Cards ── */
+.info-card {
+  background: var(--tcf-white); border: 1px solid var(--tcf-border);
+  border-radius: 16px; padding: 32px; position: relative; overflow: hidden;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.info-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--tcf-cyan);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+}
+.info-card:hover::before { transform: scaleX(1); }
+.info-card:hover {
+  transform: translateY(-4px); border-color: var(--tcf-cyan);
+  box-shadow: 0 12px 40px rgba(0,180,219,0.08);
+}
+.info-card-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+.info-card h3 {
+  font-family: var(--font-heading); font-size: 1.2rem;
+  color: var(--tcf-navy); margin-bottom: 10px;
+}
+.info-card p { font-size: 0.9rem; color: var(--tcf-slate); line-height: 1.65; }
+.info-card ul {
+  list-style: none; padding: 0; margin: 0;
+}
+.info-card li {
+  font-size: 0.88rem; color: var(--tcf-slate); padding: 8px 0;
+  border-bottom: 1px solid var(--tcf-border);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+}
+.info-card li:last-child { border-bottom: none; }
+.info-card li::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--tcf-cyan); flex-shrink: 0; margin-top: 7px;
+}
+
+/* ── Impact Callout ── */
+.impact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 16px;
+}
+.impact-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 0.95rem; color: var(--tcf-slate); line-height: 1.6;
+}
+.impact-list li .icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--tcf-cyan-light); display: flex; align-items: center;
+  justify-content: center; font-size: 1rem; flex-shrink: 0;
+}
+
+/* ── Product Feature Card ── */
+.product-card {
+  background: linear-gradient(135deg, var(--tcf-navy), #1a2d4a);
+  border-radius: 20px; padding: 56px 48px; position: relative; overflow: hidden;
+}
+.product-card::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,180,219,0.1), transparent 70%);
+  border-radius: 50%;
+}
+.product-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,180,219,0.15); color: var(--tcf-cyan);
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 8px 16px; border-radius: 100px;
+  margin-bottom: 24px; border: 1px solid rgba(0,180,219,0.25);
+}
+.product-card h2 {
+  font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--tcf-white); margin-bottom: 16px; position: relative;
+}
+.product-card h2 span { color: var(--tcf-cyan); }
+.product-card > p {
+  font-size: 1rem; color: var(--tcf-muted); line-height: 1.7;
+  max-width: 640px; margin-bottom: 36px; position: relative;
+}
+.product-features {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  position: relative;
+}
+.product-feature {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 20px;
+}
+.product-feature h4 {
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+  color: var(--tcf-cyan); margin-bottom: 6px; text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.product-feature p { font-size: 0.88rem; color: #94A3B8; line-height: 1.5; }
+.product-challenge {
+  margin-top: 36px; padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.08); position: relative;
+}
+.product-challenge h3 {
+  font-family: var(--font-heading); font-size: 1.3rem; color: var(--tcf-white);
+  margin-bottom: 10px;
+}
+.product-challenge p { font-size: 0.92rem; color: #94A3B8; line-height: 1.6; }
+
+@media (max-width: 768px) {
+  .product-card { padding: 36px 24px; }
+  .product-features { grid-template-columns: 1fr; }
+}
+
+/* ── Search Queries Section ── */
+.search-queries {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  align-items: start;
+}
+.search-featured {
+  background: var(--tcf-white); border: 2px solid var(--tcf-cyan);
+  border-radius: 16px; padding: 32px;
+}
+.search-featured-label {
+  font-size: 0.7rem; font-weight: 700; color: var(--tcf-cyan);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;
+}
+.search-featured-query {
+  font-family: var(--font-heading); font-size: 1.4rem; color: var(--tcf-navy);
+  margin-bottom: 8px;
+}
+.search-featured-meta { font-size: 0.82rem; color: var(--tcf-muted); margin-bottom: 16px; }
+.search-featured-insight {
+  font-size: 0.92rem; color: var(--tcf-slate); line-height: 1.6;
+  padding-top: 16px; border-top: 1px solid var(--tcf-border);
+}
+.search-featured-insight strong { color: var(--tcf-cyan); }
+.search-list { display: grid; gap: 12px; }
+.search-item {
+  background: var(--tcf-white); border: 1px solid var(--tcf-border);
+  border-radius: 12px; padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: border-color 0.2s;
+}
+.search-item:hover { border-color: var(--tcf-cyan); }
+.search-item-query { font-size: 0.9rem; color: var(--tcf-navy); font-weight: 500; }
+.search-item-impressions {
+  font-size: 0.78rem; color: var(--tcf-muted); font-weight: 500; white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .search-queries { grid-template-columns: 1fr; }
+}
+
+/* ── Metrics Row ── */
+.metrics-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin-bottom: 48px;
+}
+.metric-card {
+  background: var(--tcf-surface); border: 1px solid var(--tcf-border);
+  border-radius: 14px; padding: 28px; text-align: center;
+}
+.metric-num {
+  font-family: var(--font-heading); font-size: 2rem;
+  color: var(--tcf-cyan); line-height: 1; margin-bottom: 6px;
+}
+.metric-label { font-size: 0.82rem; color: var(--tcf-slate); font-weight: 500; }
+.metric-sub { font-size: 0.72rem; color: var(--tcf-muted); margin-top: 4px; }
+
+@media (max-width: 600px) {
+  .metrics-row { grid-template-columns: 1fr; }
+}
+
+/* ── Content Performance Table ── */
+.content-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--tcf-white); border-radius: 14px;
+  overflow: hidden; border: 1px solid var(--tcf-border);
+}
+.content-table thead th {
+  background: var(--tcf-surface); font-size: 0.75rem;
+  font-weight: 600; color: var(--tcf-muted); text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 14px 20px; text-align: left;
+}
+.content-table tbody td {
+  padding: 16px 20px; font-size: 0.88rem; color: var(--tcf-navy);
+  border-top: 1px solid var(--tcf-border);
+}
+.content-table tbody tr:hover { background: var(--tcf-surface); }
+.page-path {
+  font-family: 'Courier New', monospace; font-size: 0.8rem;
+  color: var(--tcf-muted); display: block; margin-top: 4px;
+}
+
+/* ── Competitive Table ── */
+.comp-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--tcf-white); border-radius: 14px;
+  overflow: hidden; border: 1px solid var(--tcf-border);
+  margin-top: 40px;
+}
+.comp-table thead th {
+  background: var(--tcf-navy); font-size: 0.72rem;
+  font-weight: 600; color: var(--tcf-muted); text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 14px 16px; text-align: left;
+}
+.comp-table tbody td {
+  padding: 14px 16px; font-size: 0.85rem; color: var(--tcf-navy);
+  border-top: 1px solid var(--tcf-border);
+}
+.comp-table tbody tr:first-child { background: var(--tcf-cyan-light); }
+.comp-table tbody tr:first-child td { font-weight: 600; }
+.comp-table tbody tr:hover { background: var(--tcf-surface); }
+.comp-highlight {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--tcf-cyan-light); color: var(--tcf-cyan-dark);
+  font-size: 0.82rem; font-weight: 600; padding: 8px 16px;
+  border-radius: 8px; margin-top: 20px;
+}
+
+/* ── Email Stats ── */
+.email-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--tcf-border); border: 1px solid var(--tcf-border);
+  border-radius: 14px; overflow: hidden; margin-top: 40px;
+}
+.email-stat {
+  background: var(--tcf-white); padding: 24px; text-align: center;
+}
+.email-stat-num {
+  font-family: var(--font-heading); font-size: 1.8rem;
+  color: var(--tcf-cyan); line-height: 1; margin-bottom: 4px;
+}
+.email-stat-label { font-size: 0.78rem; color: var(--tcf-slate); }
+
+@media (max-width: 768px) {
+  .email-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Projected Impact ── */
+.impact-stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-bottom: 48px;
+}
+.impact-stat {
+  background: rgba(0,180,219,0.08); border: 1px solid rgba(0,180,219,0.15);
+  border-radius: 16px; padding: 32px; text-align: center;
+}
+.impact-stat-num {
+  font-family: var(--font-heading); font-size: 2.6rem;
+  color: var(--tcf-cyan); line-height: 1; margin-bottom: 8px;
+}
+.section-dark .impact-stat { background: rgba(0,180,219,0.1); border-color: rgba(0,180,219,0.2); }
+.impact-stat-label { font-size: 0.88rem; color: var(--tcf-slate); }
+.section-dark .impact-stat-label { color: var(--tcf-muted); }
+
+@media (max-width: 768px) {
+  .impact-stat-row { grid-template-columns: 1fr; }
+}
+
+/* ── Timeline ── */
+.timeline { margin-top: 48px; }
+.timeline-row {
+  display: grid; grid-template-columns: 140px 1fr; gap: 24px;
+  padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.timeline-row:last-child { border-bottom: none; }
+.timeline-phase {
+  font-family: var(--font-heading); font-size: 1rem;
+  color: var(--tcf-cyan);
+}
+.timeline-desc { font-size: 0.9rem; color: var(--tcf-muted); }
+
+@media (max-width: 600px) {
+  .timeline-row { grid-template-columns: 1fr; gap: 6px; }
+}
+
+/* ── About Section ── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.about-mission {
+  font-size: 0.95rem; color: var(--tcf-slate); line-height: 1.7;
+  margin-bottom: 32px;
+}
+.about-stats {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  margin-bottom: 32px;
+}
+.about-stat {
+  background: var(--tcf-surface); border-radius: 12px; padding: 20px; text-align: center;
+}
+.about-stat-num {
+  font-family: var(--font-heading); font-size: 1.8rem; color: var(--tcf-cyan);
+  display: block; line-height: 1; margin-bottom: 4px;
+}
+.about-stat-label { font-size: 0.78rem; color: var(--tcf-slate); }
+.team-grid { display: grid; gap: 16px; }
+.team-member {
+  background: var(--tcf-surface); border-radius: 12px; padding: 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+.team-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--tcf-cyan); display: flex; align-items: center;
+  justify-content: center; color: var(--tcf-white);
+  font-family: var(--font-heading); font-size: 1.1rem; flex-shrink: 0;
+}
+.team-name { font-weight: 600; font-size: 0.9rem; color: var(--tcf-navy); }
+.team-title { font-size: 0.8rem; color: var(--tcf-muted); }
+.values-row {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;
+}
+.value-tag {
+  background: var(--tcf-cyan-light); color: var(--tcf-cyan-dark);
+  font-size: 0.78rem; font-weight: 600; padding: 8px 16px;
+  border-radius: 100px;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Pricing Tiers ── */
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.price-card {
+  background: var(--tcf-white); border: 1px solid var(--tcf-border);
+  border-radius: 20px; padding: 36px; position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.price-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+}
+.price-card.featured {
+  border: 2px solid var(--tcf-cyan);
+  box-shadow: 0 8px 32px rgba(0,180,219,0.12);
+}
+.price-card.featured::after {
+  content: 'Maximum Impact'; position: absolute; top: -1px; left: 50%;
+  transform: translateX(-50%); background: var(--tcf-cyan);
+  color: var(--tcf-white); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 6px 20px; border-radius: 0 0 10px 10px;
+}
+.price-card h3 {
+  font-family: var(--font-heading); font-size: 1.3rem;
+  color: var(--tcf-navy); margin-bottom: 8px; margin-top: 8px;
+}
+.price-amount {
+  font-family: var(--font-heading); font-size: 2.2rem;
+  color: var(--tcf-cyan); margin-bottom: 4px;
+}
+.price-period { font-size: 0.8rem; color: var(--tcf-muted); margin-bottom: 24px; }
+.price-card ul { list-style: none; padding: 0; }
+.price-card li {
+  font-size: 0.85rem; color: var(--tcf-slate); padding: 10px 0;
+  border-bottom: 1px solid var(--tcf-border);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+}
+.price-card li:last-child { border-bottom: none; }
+.price-card li::before {
+  content: '✓'; color: var(--tcf-cyan); font-weight: 700; flex-shrink: 0;
+}
+.price-note {
+  font-size: 0.8rem; color: var(--tcf-muted); margin-top: 16px;
+  padding-top: 16px; border-top: 1px solid var(--tcf-border);
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+}
+
+/* ── Summit Banner ── */
+.summit-banner {
+  background: linear-gradient(135deg, var(--tcf-navy), #1a2d4a);
+  border-radius: 20px; padding: 56px 48px;
+  display: grid; grid-template-columns: 1fr auto; gap: 40px;
+  align-items: center; position: relative; overflow: hidden;
+}
+.summit-banner::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(0,180,219,0.12), transparent 70%);
+  border-radius: 50%;
+}
+.summit-eyebrow {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--tcf-cyan); margin-bottom: 12px;
+}
+.summit-banner h3 {
+  font-family: var(--font-heading); font-size: 1.8rem;
+  color: var(--tcf-white); margin-bottom: 12px; position: relative;
+}
+.summit-banner > div p {
+  font-size: 0.92rem; color: #94A3B8; line-height: 1.6; position: relative;
+}
+.summit-pill {
+  background: rgba(0,180,219,0.12); border: 1px solid rgba(0,180,219,0.25);
+  border-radius: 16px; padding: 28px 32px; text-align: center;
+  position: relative; white-space: nowrap;
+}
+.summit-pill-label {
+  font-size: 0.68rem; color: #64748B; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 8px;
+}
+.summit-pill-val {
+  font-family: var(--font-heading); font-size: 1.6rem;
+  color: var(--tcf-cyan);
+}
+.summit-details {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  margin-top: 24px; position: relative;
+}
+.summit-detail {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 16px;
+}
+.summit-detail h4 {
+  font-size: 0.82rem; font-weight: 600; color: var(--tcf-cyan); margin-bottom: 4px;
+}
+.summit-detail p { font-size: 0.82rem; color: #94A3B8; }
+
+@media (max-width: 768px) {
+  .summit-banner { grid-template-columns: 1fr; padding: 36px 24px; }
+  .summit-details { grid-template-columns: 1fr; }
+}
+
+/* ── CTA Footer ── */
+.cta-footer {
+  padding: 100px 0;
+  background: linear-gradient(160deg, var(--tcf-navy) 0%, #1a2744 100%);
+  text-align: center;
+}
+.cta-footer h2 {
+  font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--tcf-white); margin-bottom: 16px;
+}
+.cta-footer h2 em { font-style: normal; color: var(--tcf-cyan); }
+.cta-footer p {
+  font-size: 1rem; color: var(--tcf-muted); max-width: 500px;
+  margin: 0 auto 40px; line-height: 1.7;
+}
+.cta-contacts {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  max-width: 560px; margin: 0 auto; text-align: left;
+}
+.cta-contact h4 {
+  font-family: var(--font-heading); font-size: 1.1rem;
+  color: var(--tcf-white); margin-bottom: 8px;
+}
+.cta-contact p { font-size: 0.88rem; color: var(--tcf-muted); }
+.cta-contact a {
+  color: var(--tcf-cyan); text-decoration: none;
+  font-weight: 500; transition: color 0.2s;
+}
+.cta-contact a:hover { color: var(--tcf-white); }
+
+@media (max-width: 600px) {
+  .cta-contacts { grid-template-columns: 1fr; }
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--tcf-black); padding: 32px 0; text-align: center;
+}
+.site-footer p { font-size: 0.78rem; color: var(--tcf-muted); }
+
+/* ── Scroll Animations ── */
+.fade-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Callout box ── */
+.callout {
+  background: var(--tcf-cyan-light); border-left: 4px solid var(--tcf-cyan);
+  border-radius: 0 12px 12px 0; padding: 20px 24px;
+  font-size: 0.92rem; color: var(--tcf-slate); line-height: 1.65;
+  margin-top: 32px;
+}
+.callout strong { color: var(--tcf-navy); }
+
+/* ── Tier footer notes ── */
+.tier-notes {
+  text-align: center; margin-top: 36px;
+  font-size: 0.88rem; color: var(--tcf-slate);
+}
+.tier-notes span { display: block; margin-top: 4px; color: var(--tcf-muted); font-size: 0.82rem; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="nav-brand-tcf">TCF</span>
+      <span class="nav-brand-sep">&times;</span>
+      <span class="nav-brand-partner">Tolmar / JATENZO</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#opportunity">Opportunity</a></li>
+      <li><a href="#jatenzo">JATENZO</a></li>
+      <li><a href="#reach">Our Reach</a></li>
+      <li><a href="#partner">Why TCF</a></li>
+      <li><a href="#invest">Investment</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-eyebrow">A Strategic Partnership Proposal</div>
+    <h1>Restoring Balance, <em>Rebuilding Lives</em></h1>
+    <p class="hero-sub">TCF can connect JATENZO with the testicular cancer survivors who need oral testosterone replacement therapy most — the exact AYA demographic navigating life after treatment.</p>
+    <a href="#opportunity" class="hero-btn">Explore Partnership</a>
+  </div>
+</section>
+
+<!-- Opportunity at a Glance -->
+<section id="opportunity" class="section fade-in">
+  <div class="container">
+    <div class="section-label">The Opportunity</div>
+    <h2 class="section-h2">The Opportunity at a Glance</h2>
+    <p class="section-sub">TCF can accelerate JATENZO adoption among testicular cancer survivors — the population most affected by treatment-induced hypogonadism and most in need of a convenient oral TRT option.</p>
+
+    <div class="stat-band">
+      <div class="stat-cell">
+        <div class="stat-num">9,760</div>
+        <div class="stat-label">Annual testicular cancer cases</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">~<em>40%</em></div>
+        <div class="stat-label">Develop low testosterone post-treatment</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">99%</div>
+        <div class="stat-label">Survival rate when caught early</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">15–35</div>
+        <div class="stat-label">Primary age demographic</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>TCF is the only full-time staffed organization dedicated to the testicular cancer community.</strong> Direct alignment with Tolmar's strategic focus on reaching the AYA population and community urology/oncology practices.
+    </div>
+  </div>
+</section>
+
+<!-- The Hidden Cost of Survival -->
+<section class="section section-alt fade-in">
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-h2">The Hidden Cost of <span class="text-cyan">Survival</span></h2>
+    <p class="section-sub">Young testicular cancer survivors face treatment-induced hypogonadism that impacts energy, mood, fertility, bone health, and quality of life — often with limited awareness of available solutions.</p>
+
+    <div class="card-grid-2">
+      <div>
+        <p style="font-size:0.92rem; color: var(--tcf-slate); line-height:1.7; margin-bottom: 24px;">
+          Orchiectomy and platinum-based chemotherapy can disrupt testosterone production. Hypogonadism is <strong>underdiagnosed and undertreated</strong> in this population — survivors ages 18-39 face a 29.7% risk, rising to 45.3% for ages 40-49 and 56.1% for those 50+.
+        </p>
+        <ul class="impact-list">
+          <li><span class="icon">⚡</span> Chronic fatigue and reduced energy levels</li>
+          <li><span class="icon">🧠</span> Cognitive fog, anxiety, and depression</li>
+          <li><span class="icon">💪</span> Loss of muscle mass and bone density</li>
+          <li><span class="icon">❤️</span> Sexual dysfunction and reduced libido</li>
+          <li><span class="icon">📉</span> Employment barriers and reduced quality of life</li>
+        </ul>
+      </div>
+      <div>
+        <div style="background: var(--tcf-white); border: 1px solid var(--tcf-border); border-radius: 16px; padding: 32px;">
+          <div style="font-size: 0.7rem; font-weight: 700; color: var(--tcf-cyan); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Hypogonadism Risk by Age</div>
+          <div style="display: grid; gap: 16px;">
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span style="font-size: 0.85rem; font-weight: 500; color: var(--tcf-navy);">Ages 18–39</span>
+                <span style="font-size: 0.85rem; font-weight: 600; color: var(--tcf-cyan);">29.7%</span>
+              </div>
+              <div style="height: 8px; background: var(--tcf-border); border-radius: 4px; overflow: hidden;">
+                <div style="height: 100%; width: 29.7%; background: var(--tcf-cyan); border-radius: 4px;"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span style="font-size: 0.85rem; font-weight: 500; color: var(--tcf-navy);">Ages 40–49</span>
+                <span style="font-size: 0.85rem; font-weight: 600; color: var(--tcf-cyan);">45.3%</span>
+              </div>
+              <div style="height: 8px; background: var(--tcf-border); border-radius: 4px; overflow: hidden;">
+                <div style="height: 100%; width: 45.3%; background: var(--tcf-cyan); border-radius: 4px;"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span style="font-size: 0.85rem; font-weight: 500; color: var(--tcf-navy);">Ages 50+</span>
+                <span style="font-size: 0.85rem; font-weight: 600; color: var(--tcf-cyan);">56.1%</span>
+              </div>
+              <div style="height: 8px; background: var(--tcf-border); border-radius: 4px; overflow: hidden;">
+                <div style="height: 100%; width: 56.1%; background: var(--tcf-cyan); border-radius: 4px;"></div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--tcf-border);">
+            <div style="font-size: 0.82rem; color: var(--tcf-muted); line-height: 1.5;">
+              Current TRT options (injections, gels, patches) present adherence challenges for young, active survivors. <strong style="color: var(--tcf-navy);">An oral solution changes the equation.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JATENZO Product Section -->
+<section id="jatenzo" class="section fade-in">
+  <div class="container">
+    <div class="product-card">
+      <div class="product-badge">FDA Approved · Oral TRT</div>
+      <h2>JATENZO — <span>The Oral TRT Solution</span></h2>
+      <p>The first and only FDA-approved oral softgel testosterone replacement therapy, designed for convenient, twice-daily dosing without the drawbacks of injections, gels, or patches.</p>
+
+      <div class="product-features">
+        <div class="product-feature">
+          <h4>Oral Convenience</h4>
+          <p>Twice-daily softgel capsule taken with food — no needles, no messy gels, no skin transfer risk</p>
+        </div>
+        <div class="product-feature">
+          <h4>Lymphatic Absorption</h4>
+          <p>Unique formulation absorbed through the intestinal lymphatic system, bypassing liver first-pass metabolism</p>
+        </div>
+        <div class="product-feature">
+          <h4>FDA Approved (2019)</h4>
+          <p>Approved for adult males with hypogonadism due to structural or genetic causes of testosterone deficiency</p>
+        </div>
+        <div class="product-feature">
+          <h4>Proven Efficacy</h4>
+          <p>inTUne clinical trial demonstrated effective testosterone normalization with a favorable safety profile</p>
+        </div>
+      </div>
+
+      <div class="product-challenge">
+        <h3>Current Challenge</h3>
+        <p>Reaching the testicular cancer survivor community — young men navigating post-treatment hypogonadism in community oncology and urology settings — where awareness of oral TRT options remains low.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What TCF Patients Are Asking -->
+<section class="section section-alt fade-in">
+  <div class="container">
+    <div class="section-label">Patient Demand</div>
+    <h2 class="section-h2">What TCF Patients Are Asking</h2>
+    <p class="section-sub">TCF's community is actively searching for information about testosterone replacement, low T symptoms, and treatment options — creating a natural entry point for JATENZO education.</p>
+
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-num">70.7K</div>
+        <div class="metric-label">Pageviews YTD (Q1 2026)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">48.7K</div>
+        <div class="metric-label">Site Visitors YTD</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">2:26</div>
+        <div class="metric-label">Avg. Time on Site</div>
+        <div class="metric-sub">Up from 53s in 2025</div>
+      </div>
+    </div>
+
+    <div class="search-queries">
+      <div class="search-featured">
+        <div class="search-featured-label">#1 Patient Concern</div>
+        <div class="search-featured-query">"Low testosterone after testicular cancer"</div>
+        <div class="search-featured-meta">High search volume among TC survivors</div>
+        <div class="search-featured-insight">
+          Patients are searching for answers about post-treatment hormone changes.
+          <strong>JATENZO offers a convenient oral solution they don't yet know about.</strong>
+        </div>
+      </div>
+      <div class="search-list">
+        <div class="search-item">
+          <span class="search-item-query">Testosterone replacement after orchiectomy</span>
+          <span class="search-item-impressions">High intent</span>
+        </div>
+        <div class="search-item">
+          <span class="search-item-query">TRT options for cancer survivors</span>
+          <span class="search-item-impressions">High intent</span>
+        </div>
+        <div class="search-item">
+          <span class="search-item-query">Low energy after chemo</span>
+          <span class="search-item-impressions">Symptom search</span>
+        </div>
+        <div class="search-item">
+          <span class="search-item-query">Oral testosterone replacement</span>
+          <span class="search-item-impressions">Treatment search</span>
+        </div>
+        <div class="search-item">
+          <span class="search-item-query">Hypogonadism after testicular cancer</span>
+          <span class="search-item-impressions">Clinical search</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 40px;">
+      <strong>TCF's "Tinnitus After Chemotherapy" guide saw 40% growth in Q4 2025</strong> — demonstrating existing demand for treatment side-effect content. A dedicated TRT/JATENZO content hub would follow the same growth trajectory.
+    </div>
+  </div>
+</section>
+
+<!-- Why TCF is the Ideal Partner -->
+<section id="partner" class="section fade-in">
+  <div class="container">
+    <div class="section-label">Strategic Fit</div>
+    <h2 class="section-h2">Why TCF is the Ideal Partner</h2>
+    <p class="section-sub">TCF's unique position provides direct access to patients, physicians, and the exact demographic Tolmar needs to reach with JATENZO.</p>
+
+    <div class="card-grid-4">
+      <div class="info-card">
+        <span class="info-card-icon">🎯</span>
+        <h3>Direct Patient Access</h3>
+        <ul>
+          <li>Only full-time staffed TC organization</li>
+          <li>Cojone Club survivor network</li>
+          <li>24/7 Discord community (497+ members)</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">👥</span>
+        <h3>Perfect Demographic</h3>
+        <ul>
+          <li>Ages 15–35 AYA population</li>
+          <li>Digitally engaged community</li>
+          <li>High health literacy</li>
+          <li>Advocacy-oriented survivors</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">🏥</span>
+        <h3>Provider Network</h3>
+        <ul>
+          <li>Relationships with oncologists &amp; urologists</li>
+          <li>Protocol adoption facilitation</li>
+          <li>Trusted voice in treatment decisions</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <span class="info-card-icon">📊</span>
+        <h3>Real-World Platform</h3>
+        <ul>
+          <li>Long-term outcomes tracking</li>
+          <li>TRT adherence studies</li>
+          <li>Data for clinical adoption</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Digital Reach & Engagement -->
+<section id="reach" class="section section-alt fade-in">
+  <div class="container">
+    <div class="section-label">Digital Impact</div>
+    <h2 class="section-h2">TCF's Digital Reach &amp; Engagement</h2>
+    <p class="section-sub">2026 digital performance demonstrates TCF's ability to reach and engage the testicular cancer community at scale.</p>
+
+    <div class="stat-band" style="margin-bottom: 48px;">
+      <div class="stat-cell">
+        <div class="stat-num"><em>70.7K</em></div>
+        <div class="stat-label">Pageviews (Q1 2026)</div>
+        <div class="stat-note">Jan–Mar 18</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">48.7K</div>
+        <div class="stat-label">Site Visitors (Q1 2026)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">2:26</div>
+        <div class="stat-label">Avg. Time on Site</div>
+        <div class="stat-note">Up from 53s in 2025</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Countries Reached</div>
+      </div>
+    </div>
+
+    <!-- SEO Performance -->
+    <div class="card-grid-2" style="margin-bottom: 48px;">
+      <div style="background: var(--tcf-white); border: 1px solid var(--tcf-border); border-radius: 16px; padding: 32px;">
+        <div style="font-size: 0.7rem; font-weight: 700; color: var(--tcf-cyan); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px;">Organic Search · Semrush March 2026</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0;">
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--tcf-cyan); line-height: 1;">8.3K</div>
+            <div style="font-size: 0.75rem; color: var(--tcf-muted);">Keywords Ranked</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--tcf-cyan); line-height: 1;">12.6K</div>
+            <div style="font-size: 0.75rem; color: var(--tcf-muted);">Monthly Traffic</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--tcf-cyan); line-height: 1;">$6.1K</div>
+            <div style="font-size: 0.75rem; color: var(--tcf-muted);">Traffic Value</div>
+          </div>
+        </div>
+        <div style="padding-top: 16px; border-top: 1px solid var(--tcf-border); font-size: 0.82rem; color: var(--tcf-muted); line-height: 1.5;">
+          <strong style="color: var(--tcf-navy);">99.3% non-branded traffic.</strong> Nearly all visitors find TCF through symptom searches — not by looking us up directly. Perfect for JATENZO awareness.
+        </div>
+      </div>
+      <div style="background: var(--tcf-white); border: 1px solid var(--tcf-border); border-radius: 16px; padding: 32px;">
+        <div style="font-size: 0.7rem; font-weight: 700; color: var(--tcf-cyan); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Top Referral Sources</div>
+        <div style="display: grid; gap: 12px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--tcf-border);">
+            <span style="font-size: 0.88rem; color: var(--tcf-navy); font-weight: 500;">🔍 Google</span>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--tcf-slate);">22.6K</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--tcf-border);">
+            <span style="font-size: 0.88rem; color: var(--tcf-navy); font-weight: 500;">🔗 Direct</span>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--tcf-slate);">15.6K</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--tcf-border);">
+            <span style="font-size: 0.88rem; color: var(--tcf-navy); font-weight: 500;">🦆 DuckDuckGo</span>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--tcf-slate);">2.9K</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0;">
+            <span style="font-size: 0.88rem; color: var(--tcf-navy); font-weight: 500;">🔎 Bing</span>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--tcf-slate);">2.2K</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Competitive Table -->
+    <div class="section-label">Competitive Position</div>
+    <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--tcf-navy); margin-bottom: 20px;">
+      TCF's Competitive Advantage in Testicular Cancer Space
+    </h3>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Organization</th>
+          <th>Organic Keywords</th>
+          <th>Organic Traffic</th>
+          <th>Ref. Domains</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Testicular Cancer Foundation</strong><br><span style="font-size: 0.75rem; color: var(--tcf-muted);">testicularcancer.org</span></td>
+          <td>8.3K</td>
+          <td>12.6K</td>
+          <td>960</td>
+        </tr>
+        <tr>
+          <td>TC Awareness Foundation<br><span style="font-size: 0.75rem; color: var(--tcf-muted);">testicularcancerawarenessfoundation.org</span></td>
+          <td>2.2K</td>
+          <td>5.3K</td>
+          <td>919</td>
+        </tr>
+        <tr>
+          <td>Testicular Cancer Society<br><span style="font-size: 0.75rem; color: var(--tcf-muted);">testicularcancersociety.org</span></td>
+          <td>1.9K</td>
+          <td>784</td>
+          <td>1.4K</td>
+        </tr>
+        <tr>
+          <td>Stupid Cancer<br><span style="font-size: 0.75rem; color: var(--tcf-muted);">stupidcancer.org</span></td>
+          <td>351</td>
+          <td>599</td>
+          <td>2.0K</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px;">
+      <div class="comp-highlight">🏆 Highest organic traffic across all TC organizations</div>
+      <div class="comp-highlight">📈 3.8x more keywords than nearest competitor</div>
+    </div>
+
+    <!-- Email Marketing -->
+    <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--tcf-navy); margin-top: 48px; margin-bottom: 8px;">
+      Email Marketing Power
+    </h3>
+    <div class="email-stats">
+      <div class="email-stat">
+        <div class="email-stat-num">48.5%</div>
+        <div class="email-stat-label">Avg. Open Rate</div>
+      </div>
+      <div class="email-stat">
+        <div class="email-stat-num">4.5%</div>
+        <div class="email-stat-label">Peak Click Rate</div>
+      </div>
+      <div class="email-stat">
+        <div class="email-stat-num">99.5%</div>
+        <div class="email-stat-label">Delivery Rate</div>
+      </div>
+      <div class="email-stat">
+        <div class="email-stat-num">5,000+</div>
+        <div class="email-stat-label">Engaged Subscribers</div>
+      </div>
+    </div>
+
+    <!-- Book Launch -->
+    <div style="background: var(--tcf-white); border: 1px solid var(--tcf-border); border-radius: 16px; padding: 32px; margin-top: 48px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <span style="background: var(--tcf-cyan-light); color: var(--tcf-cyan-dark); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px;">New in 2026</span>
+        <span style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--tcf-navy);">If These Balls Could Talk — Book Launch</span>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--tcf-slate); line-height: 1.6; margin-bottom: 20px;">
+        TCF's new book launch demonstrates our media reach and ability to drive national conversations about testicular cancer.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+        <div style="text-align: center;">
+          <div style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--tcf-cyan); line-height: 1;">71.4M</div>
+          <div style="font-size: 0.72rem; color: var(--tcf-muted);">Audience Reach</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--tcf-cyan); line-height: 1;">498</div>
+          <div style="font-size: 0.72rem; color: var(--tcf-muted);">Media Pickups</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--tcf-cyan); line-height: 1;">13.6K</div>
+          <div style="font-size: 0.72rem; color: var(--tcf-muted);">Traffic Generated</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--tcf-cyan); line-height: 1;">175</div>
+          <div style="font-size: 0.72rem; color: var(--tcf-muted);">Journalists Reached</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projected Impact -->
+<section class="section section-dark fade-in">
+  <div class="container">
+    <div class="section-label">Projected Outcomes</div>
+    <h2 class="section-h2">Projected Impact — By the Numbers</h2>
+    <p class="section-sub">This partnership can improve quality of life for thousands of testicular cancer survivors annually while advancing Tolmar's commercial goals for JATENZO.</p>
+
+    <div class="impact-stat-row">
+      <div class="impact-stat">
+        <div class="impact-stat-num">3,900+</div>
+        <div class="impact-stat-label">Survivors reached annually with JATENZO education</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-stat-num">2,400+</div>
+        <div class="impact-stat-label">Potential TRT conversations initiated per year</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-stat-num">100%</div>
+        <div class="impact-stat-label">Alignment with Tolmar's AYA expansion goals</div>
+      </div>
+    </div>
+
+    <div class="section-label">Execution Plan</div>
+    <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: var(--tcf-white); margin-bottom: 16px;">Partnership Timeline</h3>
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="timeline-phase">Months 1–3</div>
+        <div class="timeline-desc">Partnership launch, content strategy development, JATENZO education hub planning</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-phase">Months 4–6</div>
+        <div class="timeline-desc">Patient education rollout, survivor story campaigns, community awareness push</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-phase">Months 7–12</div>
+        <div class="timeline-desc">Measurable adoption tracking, engagement reporting, content optimization</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-phase">Year 2+</div>
+        <div class="timeline-desc">Real-world evidence gathering, expanded provider outreach, annual event integration</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About TCF -->
+<section class="section fade-in">
+  <div class="container">
+    <div class="section-label">About Us</div>
+    <h2 class="section-h2">About Testicular Cancer Foundation</h2>
+    <p class="section-sub">Founded in 2009, TCF is the only full-time staffed organization dedicated to fighting testicular cancer through education, awareness, and community support.</p>
+
+    <div class="about-grid">
+      <div>
+        <p class="about-mission">
+          Testicular Cancer Foundation educates young men to raise awareness about testicular cancer, the most commonly diagnosed cancer in males ages 15-35. Through education, community programs, and survivor support, TCF is building a future where no one faces testicular cancer alone.
+        </p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="about-stat-num">16+</span>
+            <span class="about-stat-label">Years of Service</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">40+</span>
+            <span class="about-stat-label">Years Combined Leadership</span>
+          </div>
+        </div>
+        <div class="values-row">
+          <span class="value-tag">Mission-Focused</span>
+          <span class="value-tag">Accountable</span>
+          <span class="value-tag">Supportive</span>
+          <span class="value-tag">Peer-Driven</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 0.7rem; font-weight: 700; color: var(--tcf-cyan); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Leadership Team</div>
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="team-avatar">KK</div>
+            <div>
+              <div class="team-name">Kenny Kane</div>
+              <div class="team-title">Chief Executive Officer</div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="team-avatar">CO</div>
+            <div>
+              <div class="team-name">Connor O'Leary</div>
+              <div class="team-title">Chief Mission Officer</div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="team-avatar">MF</div>
+            <div>
+              <div class="team-name">Matt Ferstler</div>
+              <div class="team-title">Founder &amp; Board Chair</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partnership Investment Tiers -->
+<section id="invest" class="section section-alt fade-in">
+  <div class="container">
+    <div class="section-label">Partnership Investment Tiers</div>
+    <h2 class="section-h2">Partnership <span class="text-cyan">Investment Tiers</span></h2>
+    <p class="section-sub">Flexible sponsorship options designed to maximize JATENZO awareness and adoption among testicular cancer survivors.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Content Partner</h3>
+        <div class="price-amount">$25,000</div>
+        <div class="price-period">Annual Investment</div>
+        <ul>
+          <li>Quarterly blog posts (4 per year)</li>
+          <li>Content driven by Tolmar's strategic goals</li>
+          <li>Collaborative development with TCF team</li>
+          <li>Distribution to 5,000+ active email subscribers</li>
+          <li>Social media amplification across TCF channels</li>
+          <li>SEO-optimized for long-term discoverability</li>
+        </ul>
+        <div class="price-note">Ongoing thought leadership platform</div>
+      </div>
+
+      <div class="price-card featured">
+        <h3>Summit Title Sponsor</h3>
+        <div class="price-amount">$50,000</div>
+        <div class="price-period">Annual Investment</div>
+        <ul>
+          <li>Exclusive title sponsorship of TCF Summit 2026</li>
+          <li>Maximum visibility across all event materials</li>
+          <li>Speaking opportunity at main sessions</li>
+          <li>Direct access to 200+ survivors and caregivers</li>
+          <li>Exclusive networking with medical professionals</li>
+          <li>Year-round brand association with premier TC event</li>
+        </ul>
+        <div class="price-note">April 10–12, 2026 · Las Vegas</div>
+      </div>
+
+      <div class="price-card">
+        <h3>JATENZO Microsite</h3>
+        <div class="price-amount">$75,000</div>
+        <div class="price-period">One-Time Investment</div>
+        <ul>
+          <li>Dedicated JATENZO microsite on testicularcancer.org</li>
+          <li>Leverages TCF's 8,300+ ranked keywords for SEO</li>
+          <li>Optimized for Google, AI search, and GEO discovery</li>
+          <li>Access to 48,700+ quarterly unique visitors</li>
+          <li>All content approved by TCF editorial team</li>
+          <li>Integrated with existing survivorship content</li>
+        </ul>
+        <div class="price-note">With annual renewal</div>
+      </div>
+    </div>
+
+    <div class="tier-notes">
+      All tiers can be combined for maximum impact
+      <span>Custom partnership packages available upon request</span>
+    </div>
+  </div>
+</section>
+
+<!-- Summit Sponsorship Banner -->
+<section class="section fade-in">
+  <div class="container">
+    <div class="summit-banner">
+      <div>
+        <div class="summit-eyebrow">Exclusive Opportunity</div>
+        <h3>TCF Summit Title Sponsorship Available</h3>
+        <p>April 10–12, 2026 at the Four Seasons Las Vegas. The premiere national event connecting TC survivors, caregivers, and medical experts — the perfect venue for JATENZO education and awareness.</p>
+        <div class="summit-details">
+          <div class="summit-detail">
+            <h4>Perfect AYA Audience</h4>
+            <p>Direct access to young survivors navigating long-term health decisions</p>
+          </div>
+          <div class="summit-detail">
+            <h4>Education Platform</h4>
+            <p>Dedicated session on post-treatment TRT and quality of life</p>
+          </div>
+          <div class="summit-detail">
+            <h4>Provider Access</h4>
+            <p>Networking with oncologists, urologists, and survivorship experts</p>
+          </div>
+          <div class="summit-detail">
+            <h4>Brand Visibility</h4>
+            <p>Maximum exposure throughout the 3-day event</p>
+          </div>
+        </div>
+      </div>
+      <div class="summit-pill">
+        <div class="summit-pill-label">Title Sponsor</div>
+        <div class="summit-pill-val">$50,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Footer -->
+<section id="contact" class="cta-footer">
+  <div class="container">
+    <h2>Let's <em>Move Forward</em></h2>
+    <p>We're ready to begin this partnership and start improving the lives of testicular cancer survivors through better access to oral TRT education.</p>
+    <div class="cta-contacts">
+      <div class="cta-contact">
+        <h4>TCF Contact</h4>
+        <p>Testicular Cancer Foundation</p>
+        <p><a href="https://testicularcancer.org">TesticularCancer.org</a></p>
+      </div>
+      <div class="cta-contact">
+        <h4>Tolmar</h4>
+        <p>JATENZO Information</p>
+        <p><a href="https://tolmar.com">Tolmar.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Testicular Cancer Foundation. Confidential Partnership Proposal.</p>
+  </div>
+</footer>
+
+<!-- Scroll Animation Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Nav background on scroll
+  var nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(15, 23, 42, 0.98)';
+      nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.2)';
+    } else {
+      nav.style.background = 'rgba(15, 23, 42, 0.95)';
+      nav.style.boxShadow = 'none';
+    }
+  });
+});
+</script>
+</body>
+</html>
