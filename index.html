@@ -697,7 +697,7 @@ body {
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-brand">
-      <img src="https://images.squarespace-cdn.com/content/v1/69497d075eb0bd3bec043669/87377f62-e998-4b40-93d7-0eea8c61c9dc/TCF+Wide+Logo.png?format=300w" alt="Testicular Cancer Foundation" class="nav-brand-logo">
+      <a href="https://www.testicularcancer.org/" target="_blank"><img src="https://images.squarespace-cdn.com/content/v1/69497d075eb0bd3bec043669/87377f62-e998-4b40-93d7-0eea8c61c9dc/TCF+Wide+Logo.png?format=300w" alt="Testicular Cancer Foundation" class="nav-brand-logo"></a>
       <span class="nav-brand-tcf" style="display:none;">TCF</span>
       <span class="nav-brand-sep">&times;</span>
       <span class="nav-brand-partner">Tolmar / JATENZO</span>
@@ -1351,7 +1351,6 @@ body {
       </div>
       <div class="cta-contact">
         <h4>Tolmar</h4>
-        <p>JATENZO Information</p>
         <p><a href="https://tolmar.com">Tolmar.com</a></p>
       </div>
     </div>
@@ -1391,14 +1390,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Nav background on scroll
+  // Nav shadow on scroll
   var nav = document.querySelector('.nav');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 60) {
-      nav.style.background = 'rgba(15, 23, 42, 0.98)';
-      nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.2)';
+      nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.08)';
     } else {
-      nav.style.background = 'rgba(15, 23, 42, 0.95)';
       nav.style.boxShadow = 'none';
     }
   });
